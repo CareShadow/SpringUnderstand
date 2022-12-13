@@ -44,11 +44,11 @@
         </dependency>
 <!--        springboot整合mybatis, 一定要在yml中配置连接数据库消息，否则会报错-->
 <!--        &lt;!&ndash;spring整合mybatis一些依赖，只是要添加驱动&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.mybatis.spring.boot</groupId>-->
-<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
-<!--            <version>2.2.2</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.2.2</version>
+        </dependency>
 <!--        &lt;!&ndash;druid数据库连接池&ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>com.alibaba</groupId>-->
