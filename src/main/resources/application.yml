@@ -6,3 +6,6 @@ server:
 spring:
   application:
     name: springboot-text
+  mvc:
+    servlet:
+      load-on-startup: -1
