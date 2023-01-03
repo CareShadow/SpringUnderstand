@@ -38,7 +38,7 @@ public class Day09Application {
 
         MyRequestMappingHandlerAdapter handlerAdapter = context.getBean(MyRequestMappingHandlerAdapter.class);
         MockHttpServletRequest request = new MockHttpServletRequest("GET", "/test4");
-//        request.addHeader("token", "令牌");
+        request.addHeader("token", "令牌");
         MockHttpServletResponse response = new MockHttpServletResponse();
         HandlerExecutionChain chain2 = handlerMapping.getHandler(request);
         System.out.println(chain2);
