@@ -8,7 +8,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @ClassName WebConfig
@@ -49,5 +55,25 @@ public class WebConfig {
          **/
         registerBean.setLoadOnStartup(webMvcProperties.getServlet().getLoadOnStartup());
         return registerBean;
+    }
+
+    // 这里我们要return RequestMappingHandlerMapping 默认的实现不会注册到context容器中
+    @Bean
+    public RequestMappingHandlerMapping requestMappingHandlerMapping() {
+        return new RequestMappingHandlerMapping();
+    }
+
+    @Bean
+    public MyRequestMappingHandlerAdapter requestMappingHandlerAdapter() {
+        TokenArgumentResolver argumentResolver = new TokenArgumentResolver();
+        YmlReturnValueHandler returnValueHandler = new YmlReturnValueHandler();
+        MyRequestMappingHandlerAdapter handlerAdapter = new MyRequestMappingHandlerAdapter();
+        List<HandlerMethodArgumentResolver> customArgumentResolvers = new ArrayList<>();
+        List<HandlerMethodReturnValueHandler> customMethodReturnValueHandler = new ArrayList<HandlerMethodReturnValueHandler>();
+        customArgumentResolvers.add(argumentResolver);
+        customMethodReturnValueHandler.add(returnValueHandler);
+        handlerAdapter.setCustomArgumentResolvers(customArgumentResolvers);
+        handlerAdapter.setCustomReturnValueHandlers(customMethodReturnValueHandler);
+        return handlerAdapter;
     }
 }
