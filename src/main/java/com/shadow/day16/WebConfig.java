@@ -99,6 +99,7 @@ public class WebConfig {
         return new BasicErrorController(new DefaultErrorAttributes(), errorProperties);
     }
 
+    // 创建error视图
     @Bean
     public View error() {
         return new View() {
