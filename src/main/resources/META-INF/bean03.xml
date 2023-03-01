@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="../bean02.xml"/>
+    <!--当前静态方法CreateUser-->
+    <bean id="userTest" class="com.shadow.day21.User" factory-method="createUser"></bean>
+    <!--BeanFactory Method Bean-->
+    <bean id="userTest2" class="com.shadow.day21.User" factory-bean="userFactory" factory-method="createUser"></bean>
+
+    <bean id="userFactory" class="com.shadow.day22.factory.DefaultUserFactory" />
+
+    <!--利用FactoryBean直接实例化Bean-->
+    <bean id="userFactoryBean" class="com.shadow.day22.factorybean.FactoryBeanDemo" />
+</beans>
