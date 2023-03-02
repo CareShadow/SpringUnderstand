@@ -13,4 +13,10 @@
 
     <!--利用FactoryBean直接实例化Bean-->
     <bean id="userFactoryBean" class="com.shadow.day22.factorybean.FactoryBeanDemo" />
+
+    <!--ServiceLoaderFactoryBean-->
+
+    <bean id="serviceLoaderFactoryBean" class="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean">
+        <property name="serviceType" value="com.shadow.day22.factory.UserFactory" />
+    </bean>
 </beans>
