@@ -1,5 +1,9 @@
 package com.shadow.day21;
 
+import org.springframework.beans.factory.InitializingBean;
+
+import javax.annotation.PostConstruct;
+
 /**
  * @ClassName User
  * @Description TODO
@@ -7,7 +11,7 @@ package com.shadow.day21;
  * @Date 2023/2/27 22:16
  * @Version 1.0
  **/
-public class User {
+public class User implements InitializingBean {
     private int age;
     private String name;
 
@@ -35,7 +39,21 @@ public class User {
                 '}';
     }
 
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("@PostConstruct 初始化");
+    }
+
+    public void initMethod() {
+        System.out.println("initMethod 初始化");
+    }
+
     public static User createUser() {
         return new User();
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("afterPropertiesSet 初始化");
     }
 }
