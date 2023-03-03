@@ -1,6 +1,5 @@
 package com.shadow.day23;
 
-import com.shadow.day21.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
@@ -25,7 +24,7 @@ public class Day23Application {
         context.close();
     }
 
-    @Bean(initMethod = "initMethod")
+    @Bean(destroyMethod = "initDestroy")
     @Lazy
     public User user() {
         return new User();

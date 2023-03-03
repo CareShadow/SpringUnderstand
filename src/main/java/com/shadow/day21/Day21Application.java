@@ -27,7 +27,6 @@ public class Day21Application {
         MutablePropertyValues propertyValues = new MutablePropertyValues();
         propertyValues.addPropertyValue("age", 18);
         propertyValues.addPropertyValue("name", "lxl");
-
         genericBeanDefinition.setPropertyValues(propertyValues);
     }
 }
