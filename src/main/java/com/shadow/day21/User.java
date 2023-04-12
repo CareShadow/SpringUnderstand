@@ -54,6 +54,7 @@ public class User implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
+
         System.out.println("afterPropertiesSet 初始化");
     }
 }
